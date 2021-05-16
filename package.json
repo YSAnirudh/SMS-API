@@ -1,0 +1,48 @@
+{
+  "name": "sms-authentication",
+  "version": "1.0.0",
+  "description": "SMS API with Authentication",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YSAnirudh/SMS-API.git"
+  },
+  "author": "Sai Anirudh Y",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YSAnirudh/SMS-API/issues"
+  },
+  "homepage": "https://github.com/YSAnirudh/SMS-API#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.9",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "redis": "^3.1.2",
+    "redis-cli": "^2.0.0",
+    "request": "^2.88.2"
+  },
+  "pkg": {
+    "assets": [
+      "public/**/*",
+      "*.crt",
+      "*.key"
+    ],
+    "targets": [
+      "node8"
+    ]
+  }
+}
