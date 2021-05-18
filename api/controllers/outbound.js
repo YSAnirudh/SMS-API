@@ -1,7 +1,12 @@
 mongoose = require('mongoose');
 require('dotenv').config({path:'../../'})
 const redis = require('redis');
-const client = redis.createClient(process.env.REDIS_PORT);
+// const client = redis.createClient({
+//     host:process.env.REDIS_END,
+//     port:process.env.REDIS_PORT,
+//     password:process.env.REDIS_PASSWORD
+// });
+const client = redis.createClient(6379);
 
 exports.outboundSms = async function (req, res) {
     try {
@@ -115,15 +120,16 @@ exports.outboundSms = async function (req, res) {
                                 "message":"",
                                 "error":`limit reached from ${from}`
                             });
+                        } else {
+                            // console.log("Outbound Accept")
+                            return res
+                            .setHeader('Content-Type', 'application/json')
+                            .status(200)
+                            .json({
+                                "message":"Outbound sms is ok.",
+                                "error":""
+                            });
                         }
-                        // console.log("Outbound Accept")
-                        return res
-                        .setHeader('Content-Type', 'application/json')
-                        .status(200)
-                        .json({
-                            "message":"Outbound sms is ok.",
-                            "error":""
-                        });
                     } else {
                         cacheFreq(req)
                         // console.log("Outbound Accept")
@@ -155,7 +161,7 @@ exports.outboundSms = async function (req, res) {
 
 async function cacheFreq(req) {
     try {
-        client.setex(req.body.from, 3600, 1);
+        client.setex(req.body.from, 10, 1);
     } catch (err) {
         // console.log("Unknown Error")
         return res

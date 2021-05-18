@@ -6,8 +6,11 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT;
 
-// const redis_port = process.env.REDIS_PORT;
-// const client = redis.createClient(redis_port);
+// const client = redis.createClient({
+//     host:process.env.REDIS_END,
+//     port:process.env.REDIS_PORT,
+//     password:process.env.REDIS_PASSWORD
+// });
 // client.flushdb( function (err, succeeded) {
 //     console.log("Flushed Cache: "+succeeded); // will be true if successfull
 // });
