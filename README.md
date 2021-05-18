@@ -8,20 +8,6 @@ SMS API with Authentication
    npm install
    ```
 
-### Redis Server Setup (Local Server)
-1. Setup the Redis Server locally for caching
-2. Install redis-server
-   ```sh
-   sudo apt-get install redis-server
-   ```
-3. Enable Redis Server Service
-   ```sh
-   sudo systemctl enable redis-server.service
-   ```
-4. Start the Redis Server
-   ```sh
-   sudo service redis-server start
-   ```
 ### You are ready to Go
 ### Clone the Repo and Start
    ```sh
@@ -30,7 +16,8 @@ SMS API with Authentication
    npm install
    npm start
    ```
-   
+### OR
+### Access the App through https://serene-reef-69526.herokuapp.com/
 1. Node Server runs on PORT = process.env.PORT<br>
 2. Redis Server runs on PORT = process.env.REDIS_PORT<br>
 3. Wait for mongoose to connect<br>
