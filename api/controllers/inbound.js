@@ -1,12 +1,12 @@
 mongoose = require('mongoose');
 require('dotenv').config({path:'../../'})
 const redis = require('redis');
-// const client = redis.createClient({
-//     host:process.env.REDIS_END,
-//     port:process.env.REDIS_PORT,
-//     password:process.env.REDIS_PASSWORD
-// });
-const client = redis.createClient(6379);
+const client = redis.createClient({
+    host:process.env.REDIS_END,
+    port:process.env.REDIS_PORT,
+    password:process.env.REDIS_PASSWORD
+});
+// const client = redis.createClient(6379);
 
 exports.inboundSms = async (req, res) => {
     try {
