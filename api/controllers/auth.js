@@ -118,3 +118,14 @@ exports.throwError = (req, res) => {
         "error":"Not correct HTTP Method"
     });
 }
+
+exports.throwErr = (req, res) => {
+    // console.log("Incorrect HTTP Method")
+    return res
+    .setHeader('Content-Type', 'application/json')
+    .status(405)
+    .json({
+        "message":"",
+        "error":`Not correct Endpoint. Check Github for Info - https://github.com/YSAnirudh/SMS-API`
+    });
+}

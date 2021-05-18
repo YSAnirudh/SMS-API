@@ -24,6 +24,11 @@ module.exports = function(app) {
         .delete(auth.throwError)
         .put(auth.throwError)
         .post(auth.throwError)
+    app.route('*')
+        .get(auth.throwErr)
+        .delete(auth.throwErr)
+        .put(auth.throwErr)
+        .post(auth.throwErr)
     
 }
 
