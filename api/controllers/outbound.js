@@ -161,7 +161,7 @@ exports.outboundSms = async function (req, res) {
 
 async function cacheFreq(req) {
     try {
-        client.setex(req.body.from, 10, 1);
+        client.setex(req.body.from, 3600, 1);
     } catch (err) {
         // console.log("Unknown Error")
         return res
