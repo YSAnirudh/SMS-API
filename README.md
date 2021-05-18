@@ -19,7 +19,7 @@ SMS API with Authentication
 ### OR
 ### Access the App through https://serene-reef-69526.herokuapp.com/
 1. Node Server runs on PORT = process.env.PORT<br>
-2. Redis Server runs on PORT = process.env.REDIS_PORT<br>
+2. Redis Server runs on Redis Enterprise Cloud<br>MongoDB for Authenticated users runs on MongoDB Atlas<br>
 3. Wait for mongoose to connect<br>
 4. Issue requests - <br>
         &nbsp;Both these API calls need Authentication Headers (Basic). With username and password. <br>
