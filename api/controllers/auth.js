@@ -68,7 +68,7 @@ exports.isAuthorized = async function(req, res, next) {
             return res
             .status(401)
             .json({
-                message: "",
+                message: "Should be authorized to use the API",
                 error: 'Missing Basic Authorization Header' 
             });
         }
@@ -100,9 +100,9 @@ exports.isAuthorized = async function(req, res, next) {
     } else {
         // console.log("Auth Header not there")
         return res
-        .status(500)
+        .status(401)
         .json({
-            message: "",
+            message: "Should be authorized to use the API",
             error: "Authorization Header not Found"
         });
     }
@@ -114,8 +114,8 @@ exports.throwError = (req, res) => {
     .setHeader('Content-Type', 'application/json')
     .status(405)
     .json({
-        "message":"",
-        "error":"Not correct HTTP Method"
+        "message":"Check the HTTP Method",
+        "error":"Incorrect HTTP Method"
     });
 }
 
@@ -125,7 +125,7 @@ exports.throwErr = (req, res) => {
     .setHeader('Content-Type', 'application/json')
     .status(405)
     .json({
-        "message":"",
+        "message":"Check your Endpoint",
         "error":`Not correct Endpoint. Check Github for Info - https://github.com/YSAnirudh/SMS-API`
     });
 }

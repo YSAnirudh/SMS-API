@@ -15,9 +15,9 @@ exports.inboundSms = async (req, res) => {
             // console.log("From Missing")
             return res
             .setHeader('Content-Type', 'application/json')
-            .status(404)
+            .status(406)
             .json({
-                message : "",
+                message : "Inbound is not OK.",
                 error: "from input is missing."
             });
         }
@@ -26,9 +26,9 @@ exports.inboundSms = async (req, res) => {
             // console.log("To Missing")
             return res
             .setHeader('Content-Type', 'application/json')
-            .status(404)
+            .status(406)
             .json({
-                message : "",
+                message : "Inbound is not OK.",
                 error: "to input is missing."
             });
         }
@@ -37,9 +37,9 @@ exports.inboundSms = async (req, res) => {
             // console.log("Text Missing")
             return res
             .setHeader('Content-Type', 'application/json')
-            .status(404)
+            .status(406)
             .json({
-                message : "",
+                message : "Inbound is not OK.",
                 error: "text input is missing."
             });
         }
@@ -50,8 +50,8 @@ exports.inboundSms = async (req, res) => {
             .setHeader('Content-Type', 'application/json')
             .status(400)
             .json({
-                message : "",
-                error: `'${from}' is invalid.`
+                message : "Inbound is not OK.",
+                error: `from '${from}' is invalid.`
             });
         }
 
@@ -61,8 +61,8 @@ exports.inboundSms = async (req, res) => {
             .setHeader('Content-Type', 'application/json')
             .status(400)
             .json({
-                message : "",
-                error: `'${to}' is invalid.`
+                message : "Inbound is not OK.",
+                error: `to '${to}' is invalid.`
             });
         }
 
@@ -72,8 +72,8 @@ exports.inboundSms = async (req, res) => {
             .setHeader('Content-Type', 'application/json')
             .status(400)
             .json({
-                message : "",
-                error: `'${text}' is invalid.`
+                message : "Inbound is not OK.",
+                error: `text '${text}' is invalid.`
             });
         }
 
@@ -83,7 +83,7 @@ exports.inboundSms = async (req, res) => {
             .setHeader('Content-Type', 'application/json')
             .status(400)
             .json({
-                message : "",
+                message : "Inbound is not OK.",
                 error: "from and to input should be different"
             });
         }
@@ -147,7 +147,7 @@ exports.throwError = (req, res) => {
     .setHeader('Content-Type', 'application/json')
     .status(405)
     .json({
-        "status-code":405,
-        "Message":"Not correct HTTP Method"
+        "message":"Check the HTTP Method",
+        "error":"Incorrect HTTP Method"
     });
 }
